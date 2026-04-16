@@ -10,10 +10,21 @@ import net.minecraft.world.item.Item;
 
 import java.util.function.Function;
 
+/**
+ * Collection class for all the Superhero items
+ */
 public class SuperheroItems {
 
     public static final Item TESTING_ITEM = register("testing_item", Item::new, new Item.Properties());
 
+    /**
+     * Register the item
+     * @param name  The name of the item
+     * @param itemFactory   Specify how the item will be created
+     * @param settings  Item settings
+     * @return The item instance
+     * @param <T>
+     */
     public static <T extends Item> T register(String name, Function<Item.Properties, T> itemFactory, Item.Properties settings) {
         // Create the item key.
         ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(SuperRandomStuffMod.MOD_ID, name));

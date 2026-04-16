@@ -15,10 +15,12 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.component.ItemLore;
-import net.minecraft.world.level.ItemLike;
 
 import java.util.List;
 
+/**
+ * The class responsible for the custom Superhero feature creative tab
+ */
 public class SuperheroCreativeTab {
     public static final ResourceKey<CreativeModeTab> CUSTOM_CREATIVE_TAB_KEY = ResourceKey.create(
             BuiltInRegistries.CREATIVE_MODE_TAB.key(),
@@ -26,12 +28,20 @@ public class SuperheroCreativeTab {
                     "creative_tab")
     );
 
+
     public static final CreativeModeTab CUSTOM_CREATIVE_TAB = FabricCreativeModeTab.builder()
             .icon(() -> new ItemStack(Items.DIAMOND_HOE))
             .title(Component.translatable("creativeTab.superrandomstuffmod.superhero"))
             .displayItems((params, output) -> {
-                output.accept(SuperheroItems.TESTING_ITEM);
 
+                // Needs to be rewritten for sure in the future...
+                // Otherwise this might become a massive file if I add lets say 200 items.
+
+                // === Item Implementations START ===
+                output.accept(SuperheroItems.TESTING_ITEM);
+                // === Item Implementations END ===
+
+                // === Potion Implementations START ===
                 ItemStack potion = new ItemStack(Items.POTION);
                 potion.set(DataComponents.POTION_CONTENTS, new PotionContents(SuperheroPotions.TESTING_POTION));
                 output.accept(potion);
@@ -47,6 +57,7 @@ public class SuperheroCreativeTab {
                 ItemStack potionArrow = new ItemStack(Items.TIPPED_ARROW);
                 potionArrow.set(DataComponents.POTION_CONTENTS, new PotionContents(SuperheroPotions.TESTING_POTION));
                 output.accept(potionArrow);
+                // === Potion Implementations END ===
 
                 // And custom ItemStacks
                 ItemStack stack = new ItemStack(Items.SEA_PICKLE);
