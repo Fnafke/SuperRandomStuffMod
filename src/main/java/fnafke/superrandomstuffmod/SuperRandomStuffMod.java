@@ -1,5 +1,6 @@
 package fnafke.superrandomstuffmod;
 
+import fnafke.superrandomstuffmod.superhero.item.SuperheroPotions;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -18,6 +19,10 @@ public class SuperRandomStuffMod implements ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
+
+		LOGGER.info("Initializing potions...");
+		SuperheroPotions.initialize();
+		LOGGER.info("Finished initializing potions!");
 
 		LOGGER.info("Hello Fabric world!");
 	}
