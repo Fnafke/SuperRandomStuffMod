@@ -1,5 +1,7 @@
 package fnafke.superrandomstuffmod;
 
+import fnafke.superrandomstuffmod.superhero.creativeTab.SuperheroCreativeTab;
+import fnafke.superrandomstuffmod.superhero.item.SuperheroItems;
 import fnafke.superrandomstuffmod.superhero.item.SuperheroPotions;
 import net.fabricmc.api.ModInitializer;
 
@@ -22,8 +24,15 @@ public class SuperRandomStuffMod implements ModInitializer {
 
 		LOGGER.info("Initializing potions...");
 		SuperheroPotions.initialize();
-		LOGGER.info("Finished initializing potions!");
 
-		LOGGER.info("Hello Fabric world!");
+		LOGGER.info("Initializing items...");
+		SuperheroItems.initialize();
+
+		LOGGER.info("Initializing creative tabs...");
+		SuperheroCreativeTab.initialize();
+
+		LOGGER.info("Finished initializing...");
+
+		LOGGER.info("SuperRandomStuffMod has started successfully!");
 	}
 }
